@@ -87,4 +87,9 @@ ENV/
 
 # Rope project settings
 .ropeproject
-/ltm/admin.pw
+
+# credential files
+*.pw
+
+# hosts files
+*.hosts

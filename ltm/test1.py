@@ -1,12 +1,17 @@
 from f5.bigip import ManagementRoot
 from credentials import Credential
+from hosts import Hosts
 import logging
+
 
 #Get the credentials
 user = Credential(pwfile='admin.pw')
 
+# Get the list of devices
+hosts = Hosts('bldg27-lab-f5.hosts')
+
 # Connect to the BIG-IP
-mgmt = ManagementRoot("172.30.204.10", user.username, user.password)
+mgmt = ManagementRoot(hosts[0], user.username, user.password)
 logging.captureWarnings(True)
 logging.basicConfig(level=logging.ERROR, filename='warning.txt')
 # Get a list of all pools on the BigIP and print their name and their
